@@ -33,6 +33,9 @@ jspm_packages
 # Optional npm cache directory
 .npm
 
+.eslintcache
+.node-version
+
 # yarn cache directory
 .pnp.*
 .yarn/*
@@ -55,3 +58,4 @@ jspm_packages
 /dist_keycloak
 /build
 /storybook-static
+/node-modules
