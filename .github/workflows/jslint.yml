@@ -1,0 +1,29 @@
+name: jslint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
+
+      - name: Install frontend dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run yarn checks
+        run: yarn lint-check
