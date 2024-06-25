@@ -35,7 +35,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-sonarjs": "^0.25.1",
     "evt": "^2.5.7",
-    "framer-motion": "^11.0.28",
+    "framer-motion": "^11.2.12",
     "keycloakify": "^9.6.6",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "react": "^18.2.0",
