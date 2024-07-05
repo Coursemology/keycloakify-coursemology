@@ -28,7 +28,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@fontsource-variable/inter": "^5.0.17",
+    "@fontsource-variable/inter": "^5.0.19",
     "@storybook/addon-queryparams": "^7.0.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
