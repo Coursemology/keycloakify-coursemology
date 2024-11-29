@@ -70,7 +70,6 @@ const LoginPage = (
 
                     return (
                       <Input
-                        tabIndex={1}
                         //NOTE: This is used by Google Chrome auto fill so we use it to tell
                         //the browser how to pre fill the form but before submit we put it back
                         //to username because it is what keycloak expects.
@@ -78,7 +77,7 @@ const LoginPage = (
                         defaultValue={login.username ?? ""}
                         type="text"
                         autoFocus={true}
-                        autoComplete="off"
+                        autoComplete="email"
                         placeholder={msgStr(label)}
                         size="lg"
                       />
@@ -86,18 +85,16 @@ const LoginPage = (
                   })()}
 
                 <PasswordTextField
-                  tabIndex={2}
                   id="password"
                   name="password"
                   placeholder={msgStr("password")}
-                  autoComplete="off"
+                  autoComplete="current-password"
                   size="lg"
                 />
 
                 {realm.rememberMe && !usernameHidden && (
                   <label className="cursor-pointer flex space-x-2">
                     <input
-                      tabIndex={3}
                       id="rememberMe"
                       name="rememberMe"
                       type="checkbox"

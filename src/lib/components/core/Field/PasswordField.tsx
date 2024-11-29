@@ -40,6 +40,7 @@ const PasswordTextField = forwardRef<HTMLDivElement, PasswordTextFieldProps>(
             onMouseDown={(e): void => e.preventDefault()}
             icon={showPassword ? <ViewIcon /> : <ViewOffIcon />}
             size={size}
+            tabIndex={-1}
           />
         )}
       </InputGroup>

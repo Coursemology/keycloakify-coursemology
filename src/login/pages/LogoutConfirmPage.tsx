@@ -47,6 +47,7 @@ const LogoutConfirmPage = (
             size="lg"
             width="100%"
             type="submit"
+            autoFocus
           >
             {msg("doLogout")}
           </Button>
