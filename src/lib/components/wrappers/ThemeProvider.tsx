@@ -1,8 +1,6 @@
 import { FC, ReactNode } from "react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
-import "@fontsource-variable/inter";
-
 interface ThemeProvidersProps {
   children: ReactNode;
 }
@@ -20,8 +18,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: `'Inter Variable', sans-serif`,
-    body: `'Inter Variable', sans-serif`,
+    heading: `'Inter', sans-serif`,
+    body: `'Inter', sans-serif`,
   },
   fontSizes: {
     xs: "12px",
