@@ -6,7 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:sonarjs/recommended',
+    'plugin:sonarjs/recommended-legacy',
     'plugin:storybook/recommended',
     'prettier',
   ],

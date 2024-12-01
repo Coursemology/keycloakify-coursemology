@@ -29,15 +29,8 @@
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@fontsource-variable/inter": "^5.0.19",
-    "@storybook/addon-queryparams": "^7.0.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-simple-import-sort": "^12.1.0",
-    "eslint-plugin-sonarjs": "^0.25.1",
-    "evt": "^2.5.8",
     "framer-motion": "^11.2.0",
     "keycloakify": "^9.6.6",
-    "prettier-plugin-tailwindcss": "^0.5.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -46,6 +39,7 @@
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",
     "@storybook/addon-onboarding": "^8.1.11",
+    "@storybook/addon-queryparams": "^7.0.1",
     "@storybook/blocks": "^8.1.11",
     "@storybook/react": "^8.1.11",
     "@storybook/react-vite": "^8.1.11",
@@ -57,11 +51,16 @@
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.55.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sonarjs": "^1.0.4",
     "eslint-plugin-storybook": "^0.8.0",
     "postcss": "^8.4.49",
     "prettier": "^3.4.1",
-    "storybook": "^8.4.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "storybook": "^8.4.6",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.7.2",
     "vite": "^5.3.5",
@@ -70,6 +69,6 @@
   },
   "_comment": "See https://github.com/storybookjs/storybook/issues/22431#issuecomment-1630086092",
   "resolutions": {
-    "jackspeak": "2.1.1"
+    "jackspeak": "^3.1.2"
   }
 }
