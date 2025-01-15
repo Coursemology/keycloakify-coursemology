@@ -1,43 +1,37 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
-import { assert } from "keycloakify/tools/assert";
 
 import type { I18n } from "../../i18n";
-import type { KcContext } from "../../KcContext";
 
 interface LocaleDropdownProps {
-  locale: KcContext["locale"];
   i18n: I18n;
 }
 
 const LocaleDropdown = (props: LocaleDropdownProps): JSX.Element | null => {
-  const { locale, i18n } = props;
-  const {
-    getChangeLocaleUrl,
-    labelBySupportedLanguageTag,
-    currentLanguageTag,
-  } = i18n;
+  const { i18n } = props;
+  const { currentLanguage, enabledLanguages } = i18n;
 
-  return (assert(locale !== undefined), true) && locale.supported.length > 1 ? (
+  return (
     <div>
       <Menu>
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-          {labelBySupportedLanguageTag[currentLanguageTag]}
+          {currentLanguage.label}
         </MenuButton>
         <MenuList>
-          {locale.supported.map(({ languageTag }) => (
+          {enabledLanguages.map(({ languageTag, label, href }, i) => (
             <MenuItem
+              id={`language-${i + 1}`}
               as="a"
-              href={getChangeLocaleUrl(languageTag)}
+              href={href}
               key={languageTag}
             >
-              {labelBySupportedLanguageTag[languageTag]}
+              {label}
             </MenuItem>
           ))}
         </MenuList>
       </Menu>
     </div>
-  ) : null;
+  );
 };
 
 export default LocaleDropdown;
