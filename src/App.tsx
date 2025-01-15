@@ -1,25 +1,15 @@
-import { lazy, Suspense } from "react";
-
 import Providers from "./lib/components/wrappers/Providers";
-import { kcContext as kcLoginThemeContext } from "./login/kcContext";
-
-const KcLoginThemeApp = lazy(() => import("./login/KcApp"));
+import { KcPage } from "./kc.gen";
 
 const App = (): JSX.Element => {
-  return (
-    <Suspense>
-      {(() => {
-        if (kcLoginThemeContext !== undefined) {
-          return <KcLoginThemeApp kcContext={kcLoginThemeContext} />;
-        }
+  if (!window.kcContext) {
+    throw new Error(
+      "This app is a Keycloak theme" +
+        "It isn't meant to be deployed outside of Keycloak",
+    );
+  }
 
-        throw new Error(
-          "This app is a Keycloak theme" +
-            "It isn't meant to be deployed outside of Keycloak",
-        );
-      })()}
-    </Suspense>
-  );
+  return <KcPage kcContext={window.kcContext} />;
 };
 
 const AppWithProviders = (): JSX.Element => {

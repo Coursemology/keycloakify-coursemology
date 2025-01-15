@@ -1,9 +1,6 @@
 import react from "@vitejs/plugin-react";
 import { keycloakify } from "keycloakify/vite-plugin";
 import { defineConfig } from "vite";
-// NOTE: This is just for the Keycloakify core contributors to be able to dynamically link
-// to a local version of the keycloakify package. This is not needed for normal usage.
-import commonjs from "vite-plugin-commonjs";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
@@ -11,12 +8,16 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
-    commonjs(),
     keycloakify({
+      accountThemeImplementation: "none",
       // See: https://docs.keycloakify.dev/build-options#themename
       themeName: "coursemology-keycloakify",
-      // See: https://docs.keycloakify.dev/environnement-variables
-      extraThemeProperties: ["MY_ENV_VARIABLE=${env.MY_ENV_VARIABLE:}"],
+      environmentVariables: [
+        {
+          name: "MY_ENV_VARIABLE",
+          default: "",
+        },
+      ],
       // This is a hook that will be called after the build is done
       // but before the jar is created.
       // You can use it to add/remove/edit your theme files.

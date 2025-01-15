@@ -3,7 +3,7 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { assert } from "keycloakify/tools/assert";
 
 import type { I18n } from "../../i18n";
-import type { KcContext } from "../../kcContext";
+import type { KcContext } from "../../KcContext";
 
 interface LocaleDropdownProps {
   locale: KcContext["locale"];
@@ -12,8 +12,11 @@ interface LocaleDropdownProps {
 
 const LocaleDropdown = (props: LocaleDropdownProps): JSX.Element | null => {
   const { locale, i18n } = props;
-  const { changeLocale, labelBySupportedLanguageTag, currentLanguageTag } =
-    i18n;
+  const {
+    getChangeLocaleUrl,
+    labelBySupportedLanguageTag,
+    currentLanguageTag,
+  } = i18n;
 
   return (assert(locale !== undefined), true) && locale.supported.length > 1 ? (
     <div>
@@ -25,8 +28,7 @@ const LocaleDropdown = (props: LocaleDropdownProps): JSX.Element | null => {
           {locale.supported.map(({ languageTag }) => (
             <MenuItem
               as="a"
-              href="#"
-              onClick={() => changeLocale(languageTag)}
+              href={getChangeLocaleUrl(languageTag)}
               key={languageTag}
             >
               {labelBySupportedLanguageTag[languageTag]}

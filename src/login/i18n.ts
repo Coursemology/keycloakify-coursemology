@@ -1,6 +1,6 @@
 import { createUseI18n } from "keycloakify/login";
 
-export const { useI18n } = createUseI18n({
+export const { useI18n, ofTypeI18n } = createUseI18n({
   // NOTE: Here you can override the default i18n messages
   // or define new ones that, for example, you would have
   // defined in the Keycloak admin UI for UserProfile
@@ -31,4 +31,4 @@ export const { useI18n } = createUseI18n({
   },
 });
 
-export type I18n = NonNullable<ReturnType<typeof useI18n>>;
+export type I18n = typeof ofTypeI18n;

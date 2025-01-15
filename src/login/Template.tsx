@@ -10,7 +10,7 @@ import BrandingHead from "src/lib/components/navigation/BrandingHead";
 import LocaleDropdown from "./components/LocaleDropdown";
 import Widget from "./components/Widget";
 import type { I18n } from "./i18n";
-import type { KcContext } from "./kcContext";
+import type { KcContext } from "./KcContext";
 
 const Template = (props: KeycloakTemplateProps<KcContext, I18n>) => {
   const {
