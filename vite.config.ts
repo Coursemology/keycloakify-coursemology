@@ -19,9 +19,9 @@ export default defineConfig({
         },
       ],
       keycloakVersionTargets: {
-        "22-to-25": "coursemology-keycloakify-keycloak-theme-8.0.0.jar",
+        "22-to-25": "coursemology-keycloakify-keycloak-theme-8.0.1.jar",
         "all-other-versions":
-          "retrocompat-coursemology-keycloakify-keycloak-theme-8.0.0.jar",
+          "retrocompat-coursemology-keycloakify-keycloak-theme-8.0.1.jar",
       },
       // This is a hook that will be called after the build is done
       // but before the jar is created.
