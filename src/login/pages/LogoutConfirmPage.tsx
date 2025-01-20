@@ -7,7 +7,7 @@ import { useCoursemologyUrls } from "src/lib/components/hooks/useCoursemologyUrl
 
 import Widget from "../components/Widget";
 import type { I18n } from "../i18n";
-import type { KcContext } from "../kcContext";
+import type { KcContext } from "../KcContext";
 
 const LogoutConfirmPage = (
   props: PageProps<Extract<KcContext, { pageId: "logout-confirm.ftl" }>, I18n>,

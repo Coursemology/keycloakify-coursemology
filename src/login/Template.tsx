@@ -1,5 +1,6 @@
 // Original file: https://github.com/InseeFrLab/keycloakify/blob/main/src/login/Template.tsx
 
+import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import { type TemplateProps as KeycloakTemplateProps } from "keycloakify/login/TemplateProps";
 
 import AlertBox from "src/lib/components/core/AlertBox";
@@ -10,7 +11,7 @@ import BrandingHead from "src/lib/components/navigation/BrandingHead";
 import LocaleDropdown from "./components/LocaleDropdown";
 import Widget from "./components/Widget";
 import type { I18n } from "./i18n";
-import type { KcContext } from "./kcContext";
+import type { KcContext } from "./KcContext";
 
 const Template = (props: KeycloakTemplateProps<KcContext, I18n>) => {
   const {
@@ -21,9 +22,9 @@ const Template = (props: KeycloakTemplateProps<KcContext, I18n>) => {
     children,
   } = props;
 
-  const { msg } = i18n;
+  const { msg, enabledLanguages } = i18n;
 
-  const { realm, locale, message, isAppInitiatedAction } = kcContext;
+  const { realm, message, isAppInitiatedAction } = kcContext;
   const { homeUrl } = useCoursemologyUrls();
 
   return (
@@ -33,9 +34,7 @@ const Template = (props: KeycloakTemplateProps<KcContext, I18n>) => {
           textNode={msg("loginTitleHtml", realm.displayNameHtml)}
           brandUrl={homeUrl}
         />
-        {realm.internationalizationEnabled && (
-          <LocaleDropdown locale={locale} i18n={i18n} />
-        )}
+        {enabledLanguages.length > 1 && <LocaleDropdown i18n={i18n} />}
       </header>
 
       <div className="relative h-full">
@@ -48,7 +47,7 @@ const Template = (props: KeycloakTemplateProps<KcContext, I18n>) => {
                 <AlertBox status={message.type}>
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: message.summary,
+                      __html: kcSanitize(message.summary),
                     }}
                   />
                 </AlertBox>

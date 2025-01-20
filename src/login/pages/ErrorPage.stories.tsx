@@ -1,20 +1,20 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import { createPageStory } from "../createPageStory";
+import { createKcPageStory } from "../KcPageStory";
 
-const { PageStory } = createPageStory({
+const { KcPageStory } = createKcPageStory({
   pageId: "error.ftl",
 });
 
 const meta = {
   title: "login/Error",
-  component: PageStory,
+  component: KcPageStory,
   parameters: {},
-} satisfies Meta<typeof PageStory>;
+} satisfies Meta<typeof KcPageStory>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => <PageStory />,
+  render: () => <KcPageStory />,
 };

@@ -1,11 +1,11 @@
 import { lazy, Suspense } from "react";
-import Fallback, { type PageProps } from "keycloakify/login";
-import DefaultTemplate from "keycloakify/login/Template";
+import type { ClassKey } from "keycloakify/login";
+import DefaultPage from "keycloakify/login/DefaultPage";
 
 import { useI18n } from "./i18n";
-import type { KcContext } from "./kcContext";
+import type { KcContext } from "./KcContext";
 import Template from "./Template";
-import "./KcApp.css";
+import "./KcPage.css";
 
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const InfoPage = lazy(() => import("./pages/InfoPage"));
@@ -13,6 +13,9 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
 const LoginPageExpired = lazy(() => import("./pages/LoginExpiredPage"));
 const LoginVerifyEmail = lazy(() => import("./pages/LoginVerifyEmailPage"));
 const LogoutConfirmPage = lazy(() => import("./pages/LogoutConfirmPage"));
+const UserProfileFormFields = lazy(
+  () => import("keycloakify/login/UserProfileFormFields"),
+);
 
 // This is like adding classes to theme.properties
 // https://github.com/keycloak/keycloak/blob/11.0.3/themes/src/main/resources/theme/keycloak/login/theme.properties
@@ -20,17 +23,11 @@ const classes = {
   // NOTE: The classes are defined in ./KcApp.css
   kcHtmlClass: "my-root-class",
   kcHeaderWrapperClass: "my-color my-font",
-} satisfies PageProps["classes"];
+} satisfies { [key in ClassKey]?: string };
 
-export const KcApp = (props: { kcContext: KcContext }) => {
+export const KcPage = (props: { kcContext: KcContext }) => {
   const { kcContext } = props;
-  const i18n = useI18n({ kcContext });
-
-  if (i18n === null) {
-    //NOTE: Text resources for the current language are still being downloaded, we can't display anything yet.
-    //We could display a loading progress but it's usually a matter of milliseconds.
-    return null;
-  }
+  const { i18n } = useI18n({ kcContext });
 
   /*
    * Examples assuming i18n.currentLanguageTag === "en":
@@ -92,10 +89,14 @@ export const KcApp = (props: { kcContext: KcContext }) => {
             );
           default:
             return (
-              <Fallback
-                {...{ kcContext, i18n, classes }}
-                Template={DefaultTemplate}
+              <DefaultPage
+                kcContext={kcContext}
+                i18n={i18n}
+                Template={Template}
+                classes={classes}
                 doUseDefaultCss={true}
+                UserProfileFormFields={UserProfileFormFields}
+                doMakeUserConfirmPassword={true}
               />
             );
         }
@@ -104,4 +105,4 @@ export const KcApp = (props: { kcContext: KcContext }) => {
   );
 };
 
-export default KcApp;
+export default KcPage;

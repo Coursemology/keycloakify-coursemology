@@ -1,7 +1,7 @@
 {
   "name": "keycloakify-starter",
   "homepage": "https://starter.keycloakify.dev",
-  "version": "6.1.7",
+  "version": "8.0.0",
   "description": "A starter/demo project for keycloakify",
   "repository": {
     "type": "git",
@@ -29,20 +29,14 @@
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "framer-motion": "^11.2.0",
-    "keycloakify": "^9.6.6",
+    "keycloakify": "^11.8.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.1.11",
-    "@storybook/addon-interactions": "^8.1.11",
-    "@storybook/addon-links": "^8.1.11",
-    "@storybook/addon-onboarding": "^8.1.11",
     "@storybook/addon-queryparams": "^7.0.1",
-    "@storybook/blocks": "^8.1.11",
     "@storybook/react": "^8.1.11",
     "@storybook/react-vite": "^8.1.11",
-    "@storybook/test": "^8.1.11",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
