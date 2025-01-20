@@ -3,6 +3,12 @@ import type { ThemeName } from "src/kc.gen";
 
 const { useI18n, ofTypeI18n } = i18nBuilder
   .withThemeName<ThemeName>()
+  .withExtraLanguages({
+    ko: {
+      label: "한국어",
+      getMessages: () => import("../translations/i18n.ko"),
+    },
+  })
   .withCustomTranslations({
     // NOTE: Here you can override the default i18n messages
     // or define new ones that, for example, you would have
@@ -31,6 +37,17 @@ const { useI18n, ofTypeI18n } = i18nBuilder
       usernameOrEmail: "电子邮箱地址",
       emailNotVerified:
         "您的电子邮件帐户尚未经过验证。 请在继续之前验证您的电子邮件。",
+    },
+    ko: {
+      doRegister: "회원가입",
+      dontYetHaveAnAccount: "아직 계정이 없으신가요?",
+      forgotPassword: "비밀번호 찾기",
+      rememberMe: "이 기기에서 로그인 유지",
+      resendConfirmationEmail: "확인 이메일 다시 보내기",
+      troubleSigningIn: "로그인에 문제가 있나요?",
+      usernameOrEmail: "이메일 주소",
+      emailNotVerified:
+        "이메일 계정이 확인되지 않았습니다. 계속 진행하기 전에 이메일을 확인해 주세요.",
     },
   })
   .build();
